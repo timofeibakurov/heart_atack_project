@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project report</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.css')}}">
+    <script src='static/js/Chart.min.js'></script>
+    <link rel="stylesheet" href="{{url_for('static',filename='vendors/simple-datatables/style.css')}}">
+
+    <link rel="stylesheet" href="{{url_for('static',filename='vendors/perfect-scrollbar/perfect-scrollbar.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='vendors/bootstrap-icons/bootstrap-icons.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/app.css')}}">
+    <link rel="shortcut icon" href="images/favicon.svg" type="image/x-icon">
+</head>
+
+<body>
+    <div id="app">
+        <div id="sidebar" class="active">
+            <div class="sidebar-wrapper active">
+    <div class="sidebar-header">
+        <div class="d-flex justify-content-between">
+            <div class="logo">
+                <div>Timofei</div>
+            </div>
+            <div class="toggler">
+                <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-menu">
+        <ul class="menu">
+            <li class="sidebar-title">Menu</li>
+
+            <li
+                class="sidebar-item  ">
+                <a href='/' class='sidebar-link'>
+                    <i class="bi bi-grid-fill"></i>
+                    <span>Main page</span>
+                </a>
+            </li>
+
+            <li
+                class="sidebar-item  ">
+                <a href="/task1" class='sidebar-link'>
+                    <i class="bi bi-grid-fill"></i>
+                    <span>Basic numeric analyses</span>
+                </a>
+            </li>
+
+            <li
+                class="sidebar-item  ">
+                <a href="/task2" class='sidebar-link'>
+                    <i class="bi bi-grid-fill"></i>
+                    <span>Graphs</span>
+                </a>
+            </li>
+
+            <li
+                class="sidebar-item  ">
+                <a href="/task3" class='sidebar-link'>
+                    <i class="bi bi-grid-fill"></i>
+                    <span>Comparison using graphs</span>
+                </a>
+            </li>
+            <li
+                class="sidebar-item  ">
+                <a href="/task5" class='sidebar-link'>
+                    <i class="bi bi-grid-fill"></i>
+                    <span>Comparison using graphs pt2</span>
+                </a>
+            </li>
+
+            <li
+                class="sidebar-item  ">
+                <a href="/task4" class='sidebar-link'>
+                    <i class="bi bi-grid-fill"></i>
+                    <span>Conclusion and a little gamification</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+</div>
+        </div>
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+
+
+<h3> Analyses via graphics </h3>
+<section class = 'section'>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title"></h4>
+                </div>
+                <div class="card-body">
+                    <div id='chart' class='chart'”></div>
+                    <div>
+                        <p> On this page you can see graphs that reflect the distribution of a
+                        particular parameter. In the next three paragraphs, a description of each graph will be presented.</p>
+
+                        <p>     The first graph is a bar chart displaying
+                            information about the types of sore throats.</p>
+                        <p>TA: Typical Angina</p>
+                        <p>ATA: Atypical Angina</p>
+                        <p>NAP: Non-Anginal Pain</p>
+                        <p>ASY: Asymptomatic</p>
+                        <p>     We can notice that most of it is due to the asymptomatic type of the disease.
+                            This is followed by non-anginal pain. The remaining part falls on typical and atypical angina.</p>
+                        <p>
+                                Speaking of the following diagram, it should be noted that its legend can be seen when you hover over it.
+                            Looking at the pie chart itself, it can be seen that among all respondents, approximately
+                            45% suffered a heart attack, but 55% did not encounter this disease, given that 100% of respondents felt heart pain.
+                        </p>
+                        <p>
+                                Now let's talk about another pie chart, which contains information about the gender of respondents.
+                            We can notice that only 21% of women, while 79% of men.
+                            Thus, it can be said for sure that men are at greater risk than women.
+                            We will try to find out further patterns when considering other graphs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+            <footer>
+                <div class="footer clearfix mb-0 text-muted">
+                    <div class="float-start">
+                        <p>2021 &copy; Bakurov Timofei</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+<script src="vendors/simple-datatables/simple-datatables.js"></script>
+<script>
+    // Simple Datatable
+    let table1 = document.querySelector('#table1');
+    let dataTable = new simpleDatatables.DataTable(table1);
+</script>
+
+    <script src="js/mazer.js"></script>
+
+</body>
+
+<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+                <script type='text/javascript'>
+                  let graphs = {{graphJSON | safe}};
+                  Plotly.plot('chart',graphs,{});
+                </script>
+
+</html>

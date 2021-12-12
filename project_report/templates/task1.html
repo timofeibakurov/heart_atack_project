@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project report</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.css')}}">
+
+<link rel="stylesheet" href="{{url_for('static',filename='vendors/simple-datatables/style.css')}}">
+
+    <link rel="stylesheet" href="{{url_for('static',filename='vendors/perfect-scrollbar/perfect-scrollbar.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='vendors/bootstrap-icons/bootstrap-icons.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/app.css')}}">
+    <link rel="shortcut icon" href="images/favicon.svg" type="image/x-icon">
+</head>
+
+<body>
+    <div id="app">
+        <div id="sidebar" class="active">
+            <div class="sidebar-wrapper active">
+    <div class="sidebar-header">
+        <div class="d-flex justify-content-between">
+            <div class="logo">
+                <div>Timofei</div>
+            </div>
+            <div class="toggler">
+                <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-menu">
+        <ul class="menu">
+            <li class="sidebar-title">Menu</li>
+
+            <li
+                class="sidebar-item  ">
+                <a href='/' class='sidebar-link'>
+                    <i class="bi bi-grid-fill"></i>
+                    <span>Main page</span>
+                </a>
+            </li>
+
+            <li
+                class="sidebar-item  ">
+                <a href="/task1" class='sidebar-link'>
+                    <i class="bi bi-grid-fill"></i>
+                    <span>Basic numeric analyses</span>
+                </a>
+            </li>
+
+            <li
+                class="sidebar-item  ">
+                <a href="/task2" class='sidebar-link'>
+                    <i class="bi bi-grid-fill"></i>
+                    <span>Graphs</span>
+                </a>
+            </li>
+
+            <li
+                class="sidebar-item  ">
+                <a href="/task3" class='sidebar-link'>
+                    <i class="bi bi-grid-fill"></i>
+                    <span>Comparison using graphs</span>
+                </a>
+            </li>
+            <li
+                class="sidebar-item  ">
+                <a href="/task5" class='sidebar-link'>
+                    <i class="bi bi-grid-fill"></i>
+                    <span>Comparison using graphs pt2</span>
+                </a>
+            </li>
+            <li
+                class="sidebar-item  ">
+                <a href="/task4" class='sidebar-link'>
+                    <i class="bi bi-grid-fill"></i>
+                    <span>Conclusion a little gamification</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+</div>
+        </div>
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+
+
+<h3> Basic numeric analyses </h3>
+<section class = 'section'>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Analyses by age</h4>
+                </div>
+                <div class="card-body">
+                    <p>Age median = {{ m_age }}</p>
+                    <p>Standard deviation = {{std_age}}</p>
+                    <p>Mean age = {{mean_age}}</p>
+                    This information allows us to understand that the average value of age is 53.511, and
+                    the median is 54. This fact makes it clear that mostly people with this age become the most
+                    frequent victims of heart disease, but not necessarily a heart sign. We can conclude that it is this
+                    indicator of age that puts you in the group with the greatest risk.
+
+                    The standard deviation for this parameter is 9.427. Based on this,
+                    we can assume that people are at risk, even if they have a slight deviation
+                    from the average value.
+                </div>
+                <div class="card-header">
+                    <h4 class="card-title">Analyses by cholesterin</h4>
+                </div>
+                <div class="card-body">
+                    <p>Median cholesterin: {{m_chol}}</p>
+                    <p>Standard deviation: {{std_chol}}</p>
+                    <p>Mean cholesterin: {{mean_chol}}</p>
+                    This information allows us to understand that the average value of cholesterin is 198.8, and
+                    the median is 223. This fact makes it clear that mostly people with this cholesterin become the most
+                    frequent victims of heart disease, but not necessarily a heart sign. We can conclude that it is this
+                    indicator of cholesterin that puts you in the group with the greatest risk.
+
+                    The standard deviation for this parameter is 109.324. Based on this,
+                    we can assume that people are at risk, even if they have a slight deviation
+                    from the average value.
+                </div>
+                <div class="card-header">
+                    <h4 class="card-title">Analyses by heart rate</h4>
+                </div>
+                <div class="card-body">
+                    <p>Medan MaxHR: {{m_maxhp}} </p>
+                    <p>Standard MaxHP: {{std_maxhp}}</p>
+                    <p>Mean MaxHP: {{mean_maxhp}}</p>
+                    This information allows us to understand that the average value of heart rate is 136.80, and
+                    the median is 138. This fact makes it clear that mostly people with this heart rate become the most
+                    frequent victims of heart disease, but not necessarily a heart sign. We can conclude that it is this
+                    indicator of heart rate that puts you in the group with the greatest risk.
+
+                    The standard deviation for this parameter is 25.44. Based on this,
+                    we can assume that people are at risk, even if they have a slight deviation
+                    from the average value.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+            <footer>
+                <div class="footer clearfix mb-0 text-muted">
+                    <div class="float-start">
+                        <p>2021 &copy; Bakurov Timofei</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+<script src="vendors/simple-datatables/simple-datatables.js"></script>
+<script>
+    // Simple Datatable
+    let table1 = document.querySelector('#table1');
+    let dataTable = new simpleDatatables.DataTable(table1);
+</script>
+
+    <script src="js/mazer.js"></script>
+</body>
+
+</html>
